@@ -8,24 +8,24 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Original Color System - HSL only */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 4%;
+    /* Dark Theme Color System - HSL only */
+    --background: 0 0% 4%;
+    --foreground: 240 9% 98%;
 
-    --card: 240 9% 98%;
-    --card-foreground: 0 0% 4%;
+    --card: 240 6% 10%;
+    --card-foreground: 240 9% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
+    --popover: 240 6% 10%;
+    --popover-foreground: 240 9% 98%;
 
-    --primary: 221 83% 48%;
+    --primary: 217 91% 53%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217 91% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 9% 98%;
-    --muted-foreground: 214 13% 34%;
+    --muted: 240 6% 15%;
+    --muted-foreground: 214 14% 65%;
 
     --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
@@ -33,29 +33,29 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 225 14% 91%;
-    --input: 225 14% 91%;
-    --ring: 221 83% 48%;
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 217 91% 53%;
 
     --radius: 1rem;
 
     /* Blue Accent Colors */
-    --neon-pink: 221 83% 48%;
+    --neon-pink: 217 91% 53%;
     --neon-blue: 217 91% 60%;
     --neon-cyan: 199 89% 48%;
-    --neon-purple: 221 83% 48%;
-    --deep-purple: 221 83% 38%;
-    --sunset-pink: 221 83% 48%;
+    --neon-purple: 217 91% 53%;
+    --deep-purple: 217 91% 45%;
+    --sunset-pink: 217 91% 53%;
 
     /* Glow Effects */
-    --glow-primary: 0 0 20px hsl(221 83% 48% / 0.4), 0 0 40px hsl(221 83% 48% / 0.3);
+    --glow-primary: 0 0 20px hsl(217 91% 53% / 0.4), 0 0 40px hsl(217 91% 53% / 0.3);
     --glow-secondary: 0 0 20px hsl(217 91% 60% / 0.4), 0 0 40px hsl(217 91% 60% / 0.3);
     --glow-accent: 0 0 20px hsl(199 89% 48% / 0.4), 0 0 40px hsl(199 89% 48% / 0.3);
 
     /* Gradients */
-    --gradient-sunset: linear-gradient(135deg, hsl(221 83% 48%) 0%, hsl(217 91% 60%) 50%, hsl(199 89% 48%) 100%);
-    --gradient-night: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(240 9% 98%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(240 9% 98% / 0.6) 0%, hsl(225 14% 91% / 0.4) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(217 91% 53%) 0%, hsl(217 91% 60%) 50%, hsl(199 89% 48%) 100%);
+    --gradient-night: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(240 6% 8%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(240 6% 10% / 0.6) 0%, hsl(240 6% 15% / 0.4) 100%);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,7 +70,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(240 9% 98%) 50%, hsl(0 0% 100%) 100%);
+    background: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(240 6% 8%) 50%, hsl(0 0% 4%) 100%);
     min-height: 100vh;
   }
 
@@ -95,9 +95,9 @@ All colors MUST be HSL.
 
   /* Glassmorphism */
   .glass {
-    background: hsl(0 0% 100% / 0.6);
+    background: hsl(240 6% 10% / 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid hsl(225 14% 91% / 0.6);
+    border: 1px solid hsl(240 6% 20% / 0.6);
   }
 
   .glass-hover {
@@ -105,16 +105,16 @@ All colors MUST be HSL.
   }
 
   .glass-hover:hover {
-    background: hsl(240 9% 98% / 0.8);
-    border-color: hsl(221 83% 48% / 0.5);
+    background: hsl(240 6% 15% / 0.8);
+    border-color: hsl(217 91% 53% / 0.5);
     box-shadow: var(--glow-primary);
   }
 
   /* Retro Grid Background */
   .retro-grid {
     background-image: 
-      linear-gradient(hsl(221 83% 48% / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(221 83% 48% / 0.08) 1px, transparent 1px);
+      linear-gradient(hsl(217 91% 53% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(217 91% 53% / 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
     position: relative;
   }
@@ -123,7 +123,7 @@ All colors MUST be HSL.
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, hsl(0 0% 100%) 100%);
+    background: linear-gradient(180deg, transparent 0%, hsl(0 0% 4%) 100%);
     pointer-events: none;
   }
 
@@ -137,8 +137,8 @@ All colors MUST be HSL.
 
   /* Neon Border Glow */
   .neon-border {
-    border: 2px solid hsl(221 83% 48%);
-    box-shadow: var(--glow-primary), inset 0 0 10px hsl(221 83% 48% / 0.15);
+    border: 2px solid hsl(217 91% 53%);
+    box-shadow: var(--glow-primary), inset 0 0 10px hsl(217 91% 53% / 0.15);
   }
 
   .neon-border-blue {
@@ -172,10 +172,10 @@ All colors MUST be HSL.
 
   @keyframes pulseGlow {
     0%, 100% { 
-      box-shadow: 0 0 20px hsl(221 83% 48% / 0.3);
+      box-shadow: 0 0 20px hsl(217 91% 53% / 0.3);
     }
     50% { 
-      box-shadow: 0 0 40px hsl(221 83% 48% / 0.6), 0 0 60px hsl(221 83% 48% / 0.3);
+      box-shadow: 0 0 40px hsl(217 91% 53% / 0.6), 0 0 60px hsl(217 91% 53% / 0.3);
     }
   }
 }
