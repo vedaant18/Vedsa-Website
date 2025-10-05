@@ -78,10 +78,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(328 100% 65% / 0.4)",
+            boxShadow: "0 0 20px hsl(221 83% 48% / 0.3)",
           },
           "50%": { 
-            boxShadow: "0 0 40px hsl(328 100% 65% / 0.8), 0 0 60px hsl(328 100% 65% / 0.4)",
+            boxShadow: "0 0 40px hsl(221 83% 48% / 0.6), 0 0 60px hsl(221 83% 48% / 0.3)",
           },
         },
         "gradient-shift": {
