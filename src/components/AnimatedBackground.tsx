@@ -7,14 +7,14 @@ function Particles({ scrollSpeed }: { scrollSpeed: number }) {
   
   const spheres = useMemo(() => {
     const temp = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 250; i++) {
       temp.push({
         position: [
           (Math.random() - 0.5) * 50,
           (Math.random() - 0.5) * 50,
           (Math.random() - 0.5) * 50
         ],
-        scale: Math.random() * 0.3 + 0.1
+        scale: Math.random() * 0.15 + 0.05
       });
     }
     return temp;
