@@ -70,8 +70,24 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(240 6% 8%) 50%, hsl(0 0% 4%) 100%);
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(217 91% 53% / 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 50%, hsl(199 89% 48% / 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 20% 80%, hsl(217 91% 60% / 0.08), transparent),
+      linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(240 6% 8%) 50%, hsl(0 0% 4%) 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    animation: gradientShift 15s ease infinite;
     min-height: 100vh;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%, -50% 50%, 150% -50%, 0% 0%;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
