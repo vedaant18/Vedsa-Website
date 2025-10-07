@@ -22,7 +22,7 @@ function Particles({ scrollSpeed }: { scrollSpeed: number }) {
 
   useFrame((state) => {
     if (groupRef.current) {
-      const speed = 0.1 + scrollSpeed * 0.5;
+      const speed = 0.05 + scrollSpeed * 0.2;
       groupRef.current.rotation.y = state.clock.elapsedTime * speed;
       groupRef.current.rotation.x = state.clock.elapsedTime * speed * 0.6;
     }
@@ -53,7 +53,7 @@ function FloatingRings({ scrollSpeed }: { scrollSpeed: number }) {
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
-    const speed = 1 + scrollSpeed * 2;
+    const speed = 0.5 + scrollSpeed * 0.8;
     if (ring1Ref.current) {
       ring1Ref.current.rotation.x = t * 0.3 * speed;
       ring1Ref.current.rotation.y = t * 0.2 * speed;
@@ -112,7 +112,7 @@ function WaveGrid({ scrollSpeed }: { scrollSpeed: number }) {
 
   useFrame((state) => {
     if (gridRef.current) {
-      const time = state.clock.elapsedTime * (1 + scrollSpeed * 2);
+      const time = state.clock.elapsedTime * (0.5 + scrollSpeed * 0.8);
       const geometry = gridRef.current.geometry;
       const positions = geometry.attributes.position.array as Float32Array;
 
@@ -147,13 +147,13 @@ export default function AnimatedBackground() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      scrollVelocity = Math.abs(currentScrollY - lastScrollY) / 50;
+      scrollVelocity = Math.abs(currentScrollY - lastScrollY) / 100;
       lastScrollY = currentScrollY;
       setScrollSpeed(scrollVelocity);
       
       setTimeout(() => {
-        setScrollSpeed(prev => prev * 0.9);
-      }, 100);
+        setScrollSpeed(prev => prev * 0.95);
+      }, 150);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
