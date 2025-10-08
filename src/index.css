@@ -10,52 +10,49 @@ All colors MUST be HSL.
   :root {
     /* Dark Theme Color System - HSL only */
     --background: 0 0% 4%;
-    --foreground: 240 9% 98%;
+    --foreground: 0 0% 94%;
 
-    --card: 240 6% 10%;
-    --card-foreground: 240 9% 98%;
+    --card: 220 13% 6%;
+    --card-foreground: 0 0% 94%;
 
-    --popover: 240 6% 10%;
-    --popover-foreground: 240 9% 98%;
+    --popover: 220 13% 6%;
+    --popover-foreground: 0 0% 94%;
 
-    --primary: 217 91% 53%;
+    --primary: 162 30% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 91% 60%;
+    --secondary: 162 25% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 6% 15%;
-    --muted-foreground: 214 14% 65%;
+    --muted: 220 13% 9%;
+    --muted-foreground: 210 9% 69%;
 
-    --accent: 199 89% 48%;
+    --accent: 162 30% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 217 91% 53%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 162 30% 60%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    /* Blue Accent Colors */
-    --neon-pink: 217 91% 53%;
-    --neon-blue: 217 91% 60%;
-    --neon-cyan: 199 89% 48%;
-    --neon-purple: 217 91% 53%;
-    --deep-purple: 217 91% 45%;
-    --sunset-pink: 217 91% 53%;
+    /* Mint/Teal Color System */
+    --primary-mint: 162 30% 60%;
+    --primary-dark: 162 25% 45%;
+    --mint-soft: 162 30% 60% / 0.25;
 
     /* Glow Effects */
-    --glow-primary: 0 0 20px hsl(217 91% 53% / 0.4), 0 0 40px hsl(217 91% 53% / 0.3);
-    --glow-secondary: 0 0 20px hsl(217 91% 60% / 0.4), 0 0 40px hsl(217 91% 60% / 0.3);
-    --glow-accent: 0 0 20px hsl(199 89% 48% / 0.4), 0 0 40px hsl(199 89% 48% / 0.3);
+    --glow-primary: 0 0 18px hsl(162 30% 60% / 0.65), 0 0 42px hsl(162 30% 60% / 0.50);
+    --glow-secondary: 0 0 20px hsl(162 25% 45% / 0.4), 0 0 40px hsl(162 25% 45% / 0.3);
+    --glow-accent: 0 0 20px hsl(162 30% 60% / 0.4), 0 0 40px hsl(162 30% 60% / 0.3);
 
     /* Gradients */
-    --gradient-sunset: linear-gradient(135deg, hsl(217 91% 53%) 0%, hsl(217 91% 60%) 50%, hsl(199 89% 48%) 100%);
-    --gradient-night: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(240 6% 8%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(240 6% 10% / 0.6) 0%, hsl(240 6% 15% / 0.4) 100%);
+    --gradient-mint: linear-gradient(180deg, hsl(162 45% 95%) 0%, hsl(162 30% 75%) 55%, hsl(162 30% 60%) 100%);
+    --gradient-white: linear-gradient(180deg, hsl(0 0% 95%) 0%, hsl(0 0% 83%) 44%, hsl(0 0% 74%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 13% 6% / 0.6) 0%, hsl(220 13% 9% / 0.4) 100%);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,15 +67,25 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background: 
-      radial-gradient(ellipse 80% 50% at 50% -20%, hsl(217 91% 53% / 0.15), transparent),
-      radial-gradient(ellipse 60% 40% at 80% 50%, hsl(199 89% 48% / 0.08), transparent),
-      radial-gradient(ellipse 60% 40% at 20% 80%, hsl(217 91% 60% / 0.08), transparent),
-      linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(240 6% 8%) 50%, hsl(0 0% 4%) 100%);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    animation: gradientShift 15s ease infinite;
+    background: #0a0a0a;
     min-height: 100vh;
+    min-height: 100dvh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 0;
+  }
+
+  /* Prevent horizontal scroll */
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure all containers respect viewport width */
+  *, *::before, *::after {
+    max-width: 100%;
   }
 
   @keyframes gradientShift {
@@ -111,9 +118,9 @@ All colors MUST be HSL.
 
   /* Glassmorphism */
   .glass {
-    background: hsl(240 6% 10% / 0.6);
+    background: hsl(220 13% 6% / 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid hsl(240 6% 20% / 0.6);
+    border: 1px solid hsl(0 0% 12% / 0.6);
   }
 
   .glass-hover {
@@ -121,16 +128,16 @@ All colors MUST be HSL.
   }
 
   .glass-hover:hover {
-    background: hsl(240 6% 15% / 0.8);
-    border-color: hsl(217 91% 53% / 0.5);
+    background: hsl(220 13% 9% / 0.8);
+    border-color: hsl(162 30% 60% / 0.5);
     box-shadow: var(--glow-primary);
   }
 
   /* Retro Grid Background */
   .retro-grid {
     background-image: 
-      linear-gradient(hsl(217 91% 53% / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(217 91% 53% / 0.08) 1px, transparent 1px);
+      linear-gradient(hsl(280 80% 60% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(280 80% 60% / 0.08) 1px, transparent 1px);
     background-size: 50px 50px;
     position: relative;
   }
@@ -139,27 +146,38 @@ All colors MUST be HSL.
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, hsl(0 0% 4%) 100%);
+    background: linear-gradient(180deg, transparent 0%, hsl(0 0% 2%) 100%);
     pointer-events: none;
   }
 
   /* Gradient Text */
   .gradient-text {
-    background: var(--gradient-sunset);
+    background: var(--gradient-mint);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .gradient-text-white {
+    background: var(--gradient-white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   /* Neon Border Glow */
   .neon-border {
-    border: 2px solid hsl(217 91% 53%);
-    box-shadow: var(--glow-primary), inset 0 0 10px hsl(217 91% 53% / 0.15);
+    border: 2px solid hsl(162 30% 60%);
+    box-shadow: var(--glow-primary), inset 0 0 10px hsl(162 30% 60% / 0.15);
   }
 
   .neon-border-blue {
-    border: 2px solid hsl(217 91% 60%);
-    box-shadow: var(--glow-secondary), inset 0 0 10px hsl(217 91% 60% / 0.15);
+    border: 2px solid hsl(162 25% 45%);
+    box-shadow: var(--glow-secondary), inset 0 0 10px hsl(162 25% 45% / 0.15);
   }
 
   /* Smooth Hover Glow */
@@ -188,10 +206,156 @@ All colors MUST be HSL.
 
   @keyframes pulseGlow {
     0%, 100% { 
-      box-shadow: 0 0 20px hsl(217 91% 53% / 0.3);
+      box-shadow: 0 0 20px hsl(162 30% 60% / 0.3);
     }
     50% { 
-      box-shadow: 0 0 40px hsl(217 91% 53% / 0.6), 0 0 60px hsl(217 91% 53% / 0.3);
+      box-shadow: 0 0 40px hsl(162 30% 60% / 0.6), 0 0 60px hsl(162 30% 60% / 0.3);
+    }
+  }
+
+  /* Page Transitions - Smoother and Subtler */
+  .page-transition {
+    animation: pageTransition 0.8s ease-out;
+  }
+
+  @keyframes pageTransition {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Scroll Reveal Animation - Reduced Movement */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero Line Animation - Smoother Entrance */
+  .hero-line {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: lineSlideIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-line:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  @keyframes lineSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger Animation for Cards - Gentler */
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stagger-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-item:nth-child(1) { transition-delay: 0.05s; }
+  .stagger-item:nth-child(2) { transition-delay: 0.1s; }
+  .stagger-item:nth-child(3) { transition-delay: 0.15s; }
+  .stagger-item:nth-child(4) { transition-delay: 0.2s; }
+  .stagger-item:nth-child(5) { transition-delay: 0.25s; }
+  .stagger-item:nth-child(6) { transition-delay: 0.3s; }
+
+  /* Reduce Motion Preference - Global */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .hero-line,
+    .scroll-reveal,
+    .stagger-item,
+    .page-transition {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    /* Smooth scrolling */
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Better text rendering on mobile */
+    body {
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Prevent text overflow */
+    h1, h2, h3, h4, h5, h6 {
+      word-break: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    /* Simpler animations on mobile */
+    .hero-line {
+      animation-duration: 0.8s;
+    }
+
+    .scroll-reveal,
+    .stagger-item {
+      transition-duration: 0.5s;
+    }
+
+    /* Ensure minimum touch target size */
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Prevent zoom on inputs */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
+
+    /* Add safe padding for floating buttons */
+    main {
+      padding-bottom: 80px;
+    }
+  }
+
+  /* Improve tap highlighting */
+  * {
+    -webkit-tap-highlight-color: rgba(162, 164, 149, 0.2);
+  }
+
+  /* Safe area for notched devices */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: max(0px, env(safe-area-inset-left));
+      padding-right: max(0px, env(safe-area-inset-right));
     }
   }
 }
